@@ -2,6 +2,11 @@
 
 A python backup script for backing up MediaWiki installations. Uses APIs for upload and download, so works best when you do not have access to the database.
 
+## Requirements
+
+* Python 3
+* [mwclient](https://github.com/mwclient/mwclient) (`pip install mwclient`)
+
 ## Usage
 
 1. Configure by setting the `url` value in `backup.py` and then run it. If your wiki isn't in the root directory, simply change the value of `path` on line 10 from `/` to whatever.
