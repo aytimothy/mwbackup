@@ -30,7 +30,11 @@ for page in pages:
     while safepagename.endswith("."):
         safepagename = safepagename[:-1]
     if not os.path.exists("./pages/" + safepagedir):
-        os.mkdir("./pages/" + safepagedir)
+        safepagedir_split = safepagedir.split("/")
+        for i in range(1, len(safepagedir_split) + 1):
+            safepagedir_subset = "/".join(safepagedir_split[:i])
+            if not os.path.exists("./pages/" + safepagedir_subset):
+                os.mkdir("./pages/" + safepagedir_subset)
     revs = list(page.revisions())
     revs_texts = [rev for rev in page.revisions(prop="content")]
     print("Found " + str(len(revs)) + " revisions...")
